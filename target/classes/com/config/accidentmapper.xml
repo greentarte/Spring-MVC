@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hw.mapper.AccidentMapper">
+	<resultMap type="accident" id="accidentResult">
+		<result column="total" property="total"/>
+		<result column="longitude" property="longitude"/>
+		<result column="latitude" property="latitude"/>
+	</resultMap>
+	
+	<select id="select" parameterType="String" 
+	resultMap="accidentResult">
+		SELECT * FROM WALK_ACC WHERE total=#{obj}
+	</select>
+	<select id="selectall" resultType="accident">
+		SELECT * FROM WALK_ACC
+	</select>
+	<insert id="insert" parameterType="accident">
+		INSERT INTO WALK_ACC VALUES (#{id},#{pwd},#{name})
+	</insert>
+	<update id="update" parameterType="accident">
+		UPDATE WALK_ACC SET PWD=#{pwd},NAME=#{name} WHERE total=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		DELETE FROM WALK_ACC WHERE total=#{obj}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
