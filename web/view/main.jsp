@@ -76,6 +76,10 @@
 					title="Components"><a class="nav-link" href="chart4.do"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">Chart4</span>
 				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Components"><a class="nav-link" href="chart5.do"> <i
+						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">Chart5</span>
+				</a></li>
 
 			</ul>
 			<ul class="navbar-nav sidenav-toggler">

@@ -7,48 +7,78 @@
 <title>chart5</title>
 </head>
 
-<script>
-function display(input){
-	Highcharts.chart('container', {
-		 credits: {
-	            enabled: false
-	        },
-	    chart: {
-	        type: 'variablepie'
-	    },
-	    title: {
-	        text: 'airplane delay total hour >> month.'
-	    },
-	    tooltip: {
-	        headerFormat: '',
-	        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-	            'Total hour (square km): <b>{point.y}</b><br/>' +
-	            'delay persent (people per square km): <b>{point.z}</b><br/>'
-	    },
-	    series: [{
-	        minPointSize: 30,
-	        innerSize: '60%',
-	        zMin: 0,
-	        name: 'countries',
-	        data: input
-	    }]
-	});
-}
 
-$(document).ready(function(){
-	// Server에 데이터를 요청한다.
-	// AJAX로
-	$.ajax({
-		url:'chart5impl.do',
-		success:function(data){
-			  
-			  display(data);
-		},
-		error:function(){
-			alert('fail !!');
+<script>
+	function display(input, input1, input2, input3) {
+		Highcharts.chart('container', {
+			chart : {
+				type : 'line'
+			},
+			title : {
+				text : 'Monthly Average Temperature'
+			},
+			subtitle : {
+				text : 'Source: WorldClimate.com'
+			},
+			xAxis : {
+				categories : input
+			},
+			yAxis : {
+				title : {
+					text : 'Temperature (°C)'
+				}
+			},
+			plotOptions : {
+				line : {
+					dataLabels : {
+						enabled : true
+					},
+					enableMouseTracking : false
+				}
+			},
+			series : [ {
+				name : 'seoul',
+				data : input1
+			}, {
+				name : 'kyunggi',
+				data : input2
+			}, {
+				name : 'incheon',
+				data : input3
+			} ]
+		});
+
+		$(document).ready(function() {
+			$.ajax({
+				url:'chart5_1impl.do',
+				success:function(input){
+					$.ajax({
+						url:'chart5_2impl.do',
+						success:function(input1){
+							$.ajax({
+								url:'chart5_3impl.do',
+								success:function(input2){
+									$.ajax({
+										url:'chart5_4impl.do',
+										success:function(input3){
+											display(input,input1,input2,input3);		
+										}		
+									})
+											
+								}		
+							})
+									
+						}
+						})
+					
+				},
+				error:function(){
+					alert('fail');
+				}
+				
+			});
+		});
 		}
-	});	
-});
 </script>
 <div id="main_center">
 	<h1>Chart5</h1>
