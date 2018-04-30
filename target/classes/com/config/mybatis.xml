@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
 		<typeAlias type="com.hw.vo.Product" alias="product"/>
 		<typeAlias type="com.hw.vo.Oldman" alias="oldman"/>
 		<typeAlias type="com.hw.vo.Accident" alias="accident"/>
+		
 		<!-- 프로덕트 추가 -->
 	</typeAliases>
 	<mappers>
@@ -15,6 +16,7 @@ PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
 		<mapper resource="com/config/productmapper.xml"/>
 		<mapper resource="com/config/oldmanmapper.xml"/>
 		<mapper resource="com/config/accidentmapper.xml"/>
+		
 		<!-- 쿼리문추가 -->
 	</mappers>
 </configuration>

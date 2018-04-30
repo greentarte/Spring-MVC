@@ -2,7 +2,6 @@ package com.hw.controller;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
@@ -12,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.rosuda.REngine.RList;
-import org.rosuda.REngine.Rserve.RConnection;
-import org.rosuda.REngine.Rserve.RserveException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,12 +25,13 @@ public class MainController {
 	Connection conn;
 
 	public MainController() {
-		try {
-			Class.forName("org.apache.hive.jdbc.HiveDriver");
-			conn = DriverManager.getConnection("jdbc:hive2://192.168.111.100:10000/" + "default", "root", "111111");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// try {
+		// Class.forName("org.apache.hive.jdbc.HiveDriver");
+		// conn = DriverManager.getConnection("jdbc:hive2://192.168.111.100:10000/" +
+		// "default", "root", "111111");
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
 	}
 
 	@RequestMapping("/main.do")
@@ -153,7 +150,6 @@ public class MainController {
 		for (Oldman u : list) {
 			JSONArray data = new JSONArray();
 
-			System.out.println(u.getLatitude() + "   " + u.getLongitude());
 			data.add(Float.parseFloat(u.getLongitude()));
 			data.add(Float.parseFloat(u.getLatitude()));
 			ja.add(data);
@@ -179,7 +175,7 @@ public class MainController {
 		list = biz2.get();
 		for (Accident u : list) {
 			JSONArray data = new JSONArray();
-			System.out.println(u.getLatitude() + "   " + u.getLongitude());
+
 			data.add(Float.parseFloat(u.getLongitude()));
 			data.add(Float.parseFloat(u.getLatitude()));
 			ja.add(data);
@@ -193,11 +189,4 @@ public class MainController {
 
 	}
 
-
-	
-
-
-
-
-	
 }

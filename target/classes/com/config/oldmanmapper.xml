@@ -11,19 +11,19 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	
 	<select id="select" parameterType="String" 
 	resultMap="oldmanResult">
-			SELECT * FROM OLDMAN WHERE latitude=#{obj}
+			SELECT * FROM Oldman WHERE latitude=#{obj}
 	</select>
 	<select id="selectall" resultType="oldman">
-		SELECT * FROM OLDMAN
+		SELECT * FROM Oldman
 	</select>
 	<insert id="insert" parameterType="oldman">
-		INSERT INTO OLDMAN VALUES (#{total},#{longitude},#{latitude})
+		INSERT INTO Oldman VALUES (#{total},#{longitude},#{latitude})
 	</insert>
 	<update id="update" parameterType="user">
-		UPDATE OLDMAN SET total=#{total},longitude=#{longitude} WHERE latitude=#{latitude}
+		UPDATE Oldman SET total=#{total},longitude=#{longitude} WHERE latitude=#{latitude}
 	</update>
 	<delete id="delete" parameterType="String">
-		DELETE FROM OLDMAN WHERE ID=#{obj}
+		DELETE FROM Oldman WHERE ID=#{obj}
 	</delete>
 	
 </mapper>

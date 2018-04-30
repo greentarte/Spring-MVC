@@ -251,7 +251,7 @@ function display(input, input2){
 	       plotOptions: {
 	           scatter: {
 	               marker: {
-	                   radius: 1.5,
+	                   radius: 3,
 	                   states: {
 	                       hover: {
 	               	            enabled: true,
@@ -279,7 +279,7 @@ function display(input, input2){
 	          
 
 	       }, {
-	           name: '보행자노인사망사고',
+	           name: '보행노인사고다발지',
 	           color:  'rgba(153, 234, 132, .7)',
 	           data: input
 
